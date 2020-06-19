@@ -2,7 +2,17 @@ class Application
 
   def call(env)
     resp = Rack::Response.new
-    resp.write "Hello, World"
+
+    num1 = Kernal.rand(1..20)
+    num2 = Kernal.rand(1..20)
+    num3 = Kernal.rand(1..20)
+
+    if num1 == num2 && num2 == num3
+      resp.write "You Win"
+    else
+      resp.write "You Lose"
+    end
+    
     resp.finish
   end
 
